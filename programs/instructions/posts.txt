@@ -1,0 +1,6 @@
+left_click 501 425
+left_click 974 325
+left_click 632 704
+left_click 570 1027
+left_click 1094 1034
+left_click 1262 1048

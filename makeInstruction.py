@@ -2,14 +2,23 @@ import keyboard
 import mouse
 import pyautogui
 
+def unclick(key):
+    while keyboard.is_pressed(key):
+        pass
+
 # l x y  | pyautogui.click(x=x, y=y, button='left')
 # r x y  | pyautogui.click(x=x, y=y, button='right')
 # w text | pyautogui.typewrite('text', interval=0)
 # p text | pyautogui.hotkey('ctrl', 'v')
-# f text | pyautogui.prompt('function name')
+# f text | run the function
 
-filename = "instructions/" + input("instruction filename: ")+".txt"
+filename = "programs/instructions/" + input("instruction filename: ")+".txt"
 file = open(filename, "w")
+
+print("Press space to create " + filename)
+while not keyboard.is_pressed("space"):
+    pass
+print(filename + " started!")
 
 while keyboard.is_pressed('esc') != True:
 
@@ -18,7 +27,7 @@ while keyboard.is_pressed('esc') != True:
         x = position[0]
         y = position[1]
 
-        instruction = "l " + str(x) + " " + str(y) + "\n"
+        instruction = "left_click " + str(x) + " " + str(y) + "\n"
         file.write(instruction)
         print(instruction)
 
@@ -29,7 +38,7 @@ while keyboard.is_pressed('esc') != True:
         x = position[0]
         y = position[1]
 
-        instruction = "r " + str(x) + " " + str(y) + "\n"
+        instruction = "right_click " + str(x) + " " + str(y) + "\n"
         file.write(instruction)
         print(instruction)
 
@@ -38,23 +47,38 @@ while keyboard.is_pressed('esc') != True:
     elif keyboard.is_pressed("w"):
         text = pyautogui.prompt('text: ').replace(" ", "_")
 
-        instruction = "w " + text + "\n"
+        instruction = "write " + text + "\n"
         file.write(instruction)
         print(instruction)
 
     elif keyboard.is_pressed("p"):
-        instruction = "p\n"
+        instruction = "paste\n"
         file.write(instruction)
         print(instruction)
 
-        while keyboard.is_pressed("p"):
+        unclick("p")
+
+    elif keyboard.is_pressed("d"):
+        instruction = "delay\n"
+        file.write(instruction)
+        print(instruction)
+
+        unclick("d")
+
+    elif keyboard.is_pressed("r"):
+        instruction = "reload\n"
+        file.write(instruction)
+        print(instruction)
+
+        unclick("r")
+
+    elif keyboard.is_pressed("down"):
+        print("paused")
+        unclick("down")
+        while not keyboard.is_pressed("down"):
             pass
-
-    elif keyboard.is_pressed("f"):
-        function = pyautogui.prompt('function: ')
-
-        instruction = "f " + function + "\n"
-        file.write(instruction)
-        print(instruction)
+        unclick("down")
+        print("unpaused")
 
 file.close()
+print(filename + " finished!")

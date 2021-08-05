@@ -1,0 +1,9 @@
+find_adjust targets/username.png
+delay
+find targets/open_user.png
+delay
+left_click 446 30
+delay
+left_click 775 339
+copy 1311 437
+

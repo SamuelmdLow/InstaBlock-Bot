@@ -1,0 +1,4 @@
+left_click 138 271
+reload
+delay
+left_click 489 314
