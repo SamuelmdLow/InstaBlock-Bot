@@ -1,0 +1,14 @@
+left_click 866 68
+write youtube.com
+delay
+left_click 509 140
+write samuel_low_SAM_LOW_good
+delay
+left_click 795 336
+delay
+left_click 1608 277
+left_click 991 378
+delay
+left_click 421 539
+write you_are_so_good_I_am_in_love_with_you_and_that_is_why_I_am_subscribing!!!
+left_click 1371 615

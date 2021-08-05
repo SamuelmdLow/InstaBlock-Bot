@@ -1,0 +1,8 @@
+l 569 81
+w https://www.instagram.com/
+l 454 403
+p
+l 741 134
+l 147 300
+w poo_hah_hah_this_is_funny_becuase_the_bot_sent_it_-_from_the_funny_epic_bot
+l 453 401

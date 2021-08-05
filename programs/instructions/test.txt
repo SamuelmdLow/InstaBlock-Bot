@@ -1,0 +1,2 @@
+right_click 699 24
+left_click 481 1042
