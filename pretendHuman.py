@@ -83,7 +83,11 @@ def pretend(instructions_filename):
             pyautogui.hotkey('ctrl', 'r')
 
         elif type == "delay":
-            x = pyautogui.position()[0]
-            y = pyautogui.position()[1]
+            time.sleep(1.5)
+        elif type == "delay2":
+            time.sleep(0.25)
 
-            pyautogui.moveTo(x, y, duration=1.5)
+        elif keyboard.is_pressed("space"):
+            print("pausing")
+            while keyboard.is_pressed("space"):
+                pass

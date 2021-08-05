@@ -5,20 +5,15 @@ import pyautogui
 import pretendHuman
 import keyboard
 
-curators = ['daily', ' post', 'viral', 'funny', 'memes', 'clips', '|', 'follow ', 'backup', 'hacked', 'dose', 'feed',
-            'relatable', 'collab', 'curator', 'admin', 'remov', 'dm', 'inquiries', 'enquiries', 'promo',' ad ', ' ads']
-annoying = ['tik', 'tok', 'positivity', 'content', 'creator', 'influencer', 'lifestyle', ' reels', 'goal', 'fan']
-count    = ['0k', '1k','2k','3k','4k','5k','6k','7k','8k','9k']
-sigma    = ['investor', 'crypto', 'bitcoin', 'business', 'trades', 'entrepreneur', 'study', 'tips']
-dislike  = ['📍', '🔞', 'fitness', 'weight lift', 'model', 'exercise', 'language', 'france']
-
-blocked_terms = curators + annoying + count + sigma + dislike
+blocked_terms = open('blocked_terms.txt', 'r', encoding="utf-8").read().split(",")
 
 def checkBio(bio, blocked_terms):
     found = ''
     for term in blocked_terms:
-        if term in bio:
+        if term+" " in bio or " "+term in bio:
             found = found + term + ","
+
+    found = found.replace(" ", "")
     if len(found) > 0:
         found = found[0:-1]
     else:
@@ -32,6 +27,10 @@ while not keyboard.is_pressed("space"):
 print("start!")
 
 for a in range(3):
+
+    filename = 'data.csv'
+    file = open(filename, 'a')
+
     for i in range(5):
         pretendHuman.pretend("checkBio")
 
@@ -39,19 +38,26 @@ for a in range(3):
         print("-\n" + bio + "-\n")
         found = checkBio(bio, blocked_terms)
         print(found)
+        time.sleep(0.5)
+
         if found != None:
             print("block")
             pretendHuman.pretend("block")
-            pyautogui.hotkey('ctrl', 'w')
+
+            file.write("blocked," + found + "\n")
+
+            pyautogui.click(x=699, y=24, button='left')
 
         else:
             print("good 👍")
-            pyautogui.hotkey('ctrl', 'w')
+            file.write("not blocked\n")
+
+            pyautogui.click(x=699, y=24, button='left')
             pyautogui.press('s')
 
         pyautogui.keyDown('right')
         time.sleep(1)
         pyautogui.keyUp('right')
         time.sleep(1)
-
+    file.close()
     pretendHuman.pretend("reload")

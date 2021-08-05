@@ -1,5 +1,5 @@
 find targets/block.png
-delay
+delay2
 left_click 952 509
-delay
+delay2
 left_click 914 648

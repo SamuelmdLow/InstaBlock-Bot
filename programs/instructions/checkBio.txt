@@ -1,5 +1,5 @@
 find_adjust targets/username.png
-delay
+delay2
 find targets/open_user.png
 delay
 left_click 446 30
