@@ -1,9 +1,10 @@
 import pretendHuman
 import keyboard
+import pyautogui
 
-print("Press space to start!")
-while not keyboard.is_pressed("c"):
-    pass
-print("start!")
-
-pretendHuman.pretend("block")
+while True:
+    if keyboard.is_pressed("esc"):
+        print("pausing")
+        while keyboard.is_pressed("esc"):
+            pass
+        print("done pausing")

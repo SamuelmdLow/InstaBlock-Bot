@@ -1,8 +1,10 @@
 find_adjust targets/username.png
 delay2
 find targets/open_user.png
-delay
+delay2
 left_click 446 30
+delay
+delay
 delay
 left_click 775 339
 copy 1311 437

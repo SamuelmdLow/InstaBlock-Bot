@@ -4,5 +4,5 @@ delay
 delay
 delay
 left_click 489 314
-delay
+delay2
 

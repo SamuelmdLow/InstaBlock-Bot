@@ -16,6 +16,12 @@ def pretend(instructions_filename):
     instructions            = open(instructions_location, "r").readlines()
 
     for instruction in instructions:
+
+        if keyboard.is_pressed("esc"):
+            print("pausing")
+            while keyboard.is_pressed("esc"):
+                pass
+
         instruction = instruction.split(" ")
         type = instruction[0]
 
@@ -86,8 +92,3 @@ def pretend(instructions_filename):
             time.sleep(1.5)
         elif type == "delay2":
             time.sleep(0.25)
-
-        elif keyboard.is_pressed("space"):
-            print("pausing")
-            while keyboard.is_pressed("space"):
-                pass

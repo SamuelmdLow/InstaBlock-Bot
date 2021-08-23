@@ -26,10 +26,10 @@ while not keyboard.is_pressed("space"):
     pass
 print("start!")
 
-for a in range(3):
+for a in range(100):
 
     filename = 'data.csv'
-    file = open(filename, 'a')
+    file = open(filename, 'a', encoding="utf-8")
 
     for i in range(5):
         pretendHuman.pretend("checkBio")
@@ -53,7 +53,11 @@ for a in range(3):
             file.write("not blocked\n")
 
             pyautogui.click(x=699, y=24, button='left')
+            time.sleep(0.1)
+            pyautogui.click(x=1263, y=302, button='left')
+            time.sleep(0.1)
             pyautogui.press('s')
+            time.sleep(0.1)
 
         pyautogui.keyDown('right')
         time.sleep(1)
