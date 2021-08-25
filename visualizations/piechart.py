@@ -34,5 +34,5 @@ def update(frame):
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
 ani = FuncAnimation(fig, update, frames=len(data), interval=100, repeat=False)
-ani.save("total.gif")
+#ani.save("total.gif")
 plt.show()

@@ -21,5 +21,5 @@ def update(frame):
     return ln,
 
 ani = FuncAnimation(fig, update, frames=len(data), interval=20, blit=True, repeat=False)
-ani.save("blocked_rolling_sum.gif")
+#ani.save("blocked_rolling_sum.gif")
 plt.show()
